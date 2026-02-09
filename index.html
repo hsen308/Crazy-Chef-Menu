@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crazy Chef - Lebanese Fast Food Restaurant. Delicious burgers, sandwiches, and crispy fajita fries. Dine-in, takeaway & delivery available.">
+    <meta name="keywords" content="Lebanese food, fast food, burgers, sandwiches, fajita fries, delivery, Crazy Chef">
+    <title>Crazy Chef | Lebanese Fast Food Restaurant</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+/* ========================================
+   CRAZY CHEF - RESTAURANT WEBSITE STYLES
+   Modern Lebanese Fast Food Design
+======================================== */
+
+/* CSS Variables */
+:root {
+    /* Brand Colors */
+    --primary-red: #E63946;
+    --dark-red: #C62F3A;
+    --light-red: #FF4757;
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --cream: #FFF8F0;
+    
+    /* Neutral Colors */
+    --black: #1A1A1A;
+    --dark-gray: #2D2D2D;
+    --gray: #6C6C6C;
+    --light-gray: #E5E5E5;
+    
+    /* Accent Colors */
+    --gold: #FFD700;
+    --orange: #FF6B35;
+    
+    /* Typography */
+    --font-display: 'Righteous', cursive;
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Spacing */
+    --container-width: 1200px;
+    --section-padding: 80px 0;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Section Styling */
+section {
+    padding: var(--section-padding);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--primary-red);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--off-white) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 200px;
+    border-radius: 12px;
+    color: var(--gray);
+    transition: var(--transition-medium);
+}
+
+.image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.image-placeholder p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.image-placeholder:hover {
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--light-gray) 100%);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    border: 2px solid transparent;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--dark-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--primary-red);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-whatsapp:hover {
+    background: #20BA5A;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: all var(--transition-medium);
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.logo-crazy {
+    color: var(--primary-red);
+}
+
+.logo-chef {
+    color: var(--black);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--black);
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: width var(--transition-medium);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-red);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lang-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-option {
+    transition: var(--transition-fast);
+}
+
+.lang-option.active {
+    color: var(--primary-red);
+    font-size: 1.1rem;
+}
+
+.lang-divider {
+    color: var(--light-gray);
+}
+
+.btn-order {
+    padding: 10px 24px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition-medium);
+}
+
+.btn-order:hover {
+    background: var(--dark-red);
+    transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--black);
+    border-radius: 2px;
+    transition: var(--transition-medium);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+}
+
+.hero-placeholder i {
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.hero-placeholder p {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.2rem;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(230, 57, 70, 0.3) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.hero-text {
+    animation: fadeInUp 1s ease;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--white);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+/* ========================================
+   MENU SECTION
+======================================== */
+.menu {
+    background: var(--white);
+}
+
+.menu-category-section {
+    margin-bottom: 60px;
+    scroll-margin-top: 100px;
+}
+
+.category-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary-red);
+}
+
+.menu-tabs {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.menu-tab {
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid var(--light-gray);
+    border-radius: 50px;
+    color: var(--gray);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-medium);
+}
+
+.menu-tab:hover,
+.menu-tab.active {
+    background: var(--primary-red);
+    color: var(--white);
+    border-color: var(--primary-red);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-medium);
+    animation: fadeIn 0.5s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.menu-item-content {
+    padding: 25px;
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.menu-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--black);
+    letter-spacing: 1px;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    white-space: nowrap;
+}
+
+.menu-item-desc {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.menu-order-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #25D366;
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition-medium);
+}
+
+.menu-order-btn:hover {
+    background: #20BA5A;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+.about {
+    background: var(--cream);
+}
+
+.about-content {
+    display: grid;
+    gap: 60px;
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-red), var(--light-red));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.feature-card p {
+    color: var(--gray);
+}
+
+/* ========================================
+   REVIEWS SECTION
+======================================== */
+.reviews {
+    background: var(--white);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 16px;
+    transition: var(--transition-medium);
+    border: 2px solid transparent;
+}
+
+.review-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-5px);
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.stars i {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.review-text {
+    color: var(--dark-gray);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.reviewer strong {
+    display: block;
+    color: var(--black);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.reviewer span {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   HOURS & SERVICES SECTION
+======================================== */
+.hours-services {
+    background: var(--dark-gray);
+    color: var(--white);
+}
+
+.hs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.hours-card,
+.services-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hours-card h3,
+.services-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    color: var(--primary-red);
+}
+
+.hour-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hour-item:last-child {
+    border-bottom: none;
+}
+
+.time {
+    font-weight: 600;
+    color: var(--primary-red);
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.service-item i {
+    color: var(--primary-red);
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   LOCATION SECTION
+======================================== */
+.location {
+    background: var(--off-white);
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-item i {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.contact-item p {
+    color: var(--gray);
+}
+
+.map-container {
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition-medium);
+}
+
+.social-links a:hover {
+    background: var(--white);
+    color: var(--primary-red);
+    transform: translateY(-5px);
+}
+
+.footer-col h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-red);
+    padding-left: 5px;
+}
+
+.footer-col ul li i {
+    color: var(--primary-red);
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   FLOATING WHATSAPP BUTTON
+======================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: var(--transition-medium);
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background: #20BA5A;
+    transform: scale(1.1);
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+/* ========================================
+   RTL SUPPORT (ARABIC)
+======================================== */
+[dir="rtl"] {
+    direction: rtl;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-buttons {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .menu-item-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact-item {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .res-feature {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .service-item {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-links {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .location-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 50px 0;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        padding: 40px 20px;
+        box-shadow: var(--shadow-lg);
+        transition: left var(--transition-medium);
+        gap: 20px;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-tabs {
+        gap: 10px;
+    }
+    
+    .menu-tab {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-crazy">CRAZY</span>
+                <span class="logo-chef">CHEF</span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#menu" class="nav-link" data-en="Menu" data-ar="القائمة">Menu</a></li>
+                <li><a href="#about" class="nav-link" data-en="About" data-ar="من نحن">About</a></li>
+                <li><a href="#contact" class="nav-link" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-option active" data-lang="en">EN</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-option" data-lang="ar">AR</span>
+                </button>
+                <a href="https://wa.me/96181808683?text=Hello!%20I'd%20like%20to%20place%20an%20order" class="btn-order" data-en="Order Now" data-ar="اطلب الآن" target="_blank">Order Now</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-image">
+            <div class="image-placeholder hero-placeholder">
+                <i class="fas fa-hamburger"></i>
+                <p>Hero Background Image</p>
+            </div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" data-en="Taste The Crazy Difference" data-ar="تذوق الفرق المجنون">Taste The Crazy Difference</h1>
+                <p class="hero-subtitle" data-en="Fresh burgers, authentic mashawi & crispy snacks. Call 81808683 to order!" data-ar="برغر طازج، مشاوي أصيلة وسناكس مقرمش. اتصل على 81808683 للطلب!">Fresh burgers, authentic mashawi & crispy snacks. Call 81808683 to order!</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary" data-en="View Menu" data-ar="عرض القائمة">View Menu</a>
+                    <a href="https://wa.me/96181808683?text=Hello!%20I'd%20like%20to%20place%20an%20order" class="btn btn-secondary" target="_blank" data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</a>
+                    <a href="#contact" class="btn btn-outline" data-en="Visit Us" data-ar="زرنا">Visit Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-en="What We Serve" data-ar="ما نقدمه">What We Serve</span>
+                <h2 class="section-title" data-en="Our Menu" data-ar="قائمتنا">Our Menu</h2>
+            </div>
+            
+            <div class="menu-tabs">
+                <a href="#chicken" class="menu-tab" data-en="Chicken Snacks" data-ar="سناكس دجاج">Chicken Snacks</a>
+                <a href="#burgers" class="menu-tab" data-en="Burgers" data-ar="برغر">Burgers</a>
+                <a href="#meat" class="menu-tab" data-en="Meat Snacks" data-ar="سناكس لحم">Meat Snacks</a>
+                <a href="#appetizers" class="menu-tab" data-en="Appetizers" data-ar="مقبلات">Appetizers</a>
+                <a href="#mashawi" class="menu-tab" data-en="Mashawi" data-ar="مشاوي">Mashawi</a>
+                <a href="#pasta" class="menu-tab" data-en="Pasta" data-ar="باستا">Pasta</a>
+                <a href="#platter" class="menu-tab" data-en="Platters" data-ar="صحون">Platters</a>
+                <a href="#salad" class="menu-tab" data-en="Salad" data-ar="سلطة">Salad</a>
+            </div>
+            
+            <!-- CHICKEN SNACKS SECTION -->
+            <div class="menu-category-section" id="chicken">
+                <h3 class="category-title" data-en="Chicken Snacks" data-ar="سناكس دجاج">Chicken Snacks</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Crispy Escalope" data-ar="اسكالوب مقرمش">Crispy Escalope</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Crispy breaded chicken escalope" data-ar="اسكالوب دجاج مقرمش">Crispy breaded chicken escalope</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Crispy%20Escalope" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Escalope" data-ar="اسكالوب">Escalope</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Classic chicken escalope" data-ar="اسكالوب دجاج كلاسيك">Classic chicken escalope</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Escalope" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Crispy" data-ar="كريسبي">Crispy</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Crispy chicken sandwich" data-ar="سندويش دجاج مقرمش">Crispy chicken sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Crispy" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Fajita" data-ar="فاهيتا">Fajita</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Chicken fajita wrap" data-ar="لفافة فاهيتا دجاج">Chicken fajita wrap</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Fajita" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Mexicana" data-ar="مكسيكانا">Mexicana</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Mexican-style chicken" data-ar="دجاج بنكهة مكسيكية">Mexican-style chicken</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Mexicana" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-sandwich"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Chicken Sub" data-ar="سب دجاج">Chicken Sub</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Chicken submarine sandwich" data-ar="سندويش دجاج بالخبز الطويل">Chicken submarine sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Chicken%20Sub" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Twister" data-ar="تويستر">Twister</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Twisted chicken wrap" data-ar="لفافة دجاج تويستر">Twisted chicken wrap</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Twister" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BURGERS SECTION -->
+            <div class="menu-category-section" id="burgers">
+                <h3 class="category-title" data-en="Burgers" data-ar="برغر">Burgers</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Lebanese Burger" data-ar="برغر لبناني">Lebanese Burger</h3>
+                                <span class="price">300 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Lebanese-style burger" data-ar="برغر بالطريقة اللبنانية">Lebanese-style burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Lebanese%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Escalope Burger" data-ar="برغر اسكالوب">Escalope Burger</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Escalope in a burger bun" data-ar="اسكالوب في خبز برغر">Escalope in a burger bun</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Escalope%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Chicken Burger" data-ar="برغر دجاج">Chicken Burger</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Classic chicken burger" data-ar="برغر دجاج كلاسيك">Classic chicken burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Chicken%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="American Burger" data-ar="برغر أمريكي">American Burger</h3>
+                                <span class="price">300 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="American-style beef burger" data-ar="برغر لحم بقري أمريكي">American-style beef burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20American%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="King Zinger Burger" data-ar="كينغ زينغر برغر">King Zinger Burger</h3>
+                                <span class="price">500 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Large spicy zinger burger" data-ar="برغر زينغر حار كبير">Large spicy zinger burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20King%20Zinger%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Zinger Burger" data-ar="زينغر برغر">Zinger Burger</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Spicy crispy chicken burger" data-ar="برغر دجاج مقرمش حار">Spicy crispy chicken burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Zinger%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Swiss Mushroom" data-ar="سويس مشروم">Swiss Mushroom</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Burger with Swiss cheese & mushrooms" data-ar="برغر مع جبنة سويسرية ومشروم">Burger with Swiss cheese & mushrooms</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Swiss%20Mushroom" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Chunky Burger" data-ar="تشانكي برغر">Chunky Burger</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Premium chunky beef burger" data-ar="برغر لحم ممتاز">Premium chunky beef burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Chunky%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Crazy Chef Burger" data-ar="برغر كريزي شيف">Crazy Chef Burger</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Our signature special burger" data-ar="برغرنا المميز الخاص">Our signature special burger</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Crazy%20Chef%20Burger" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MEAT SNACKS SECTION -->
+            <div class="menu-category-section" id="meat">
+                <h3 class="category-title" data-en="Meat Snacks" data-ar="سناكس لحم">Meat Snacks</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Philadelphia" data-ar="فيلادلفيا">Philadelphia</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Philadelphia-style steak sandwich" data-ar="سندويش ستيك بطريقة فيلادلفيا">Philadelphia-style steak sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Philadelphia" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Steak Spice" data-ar="ستيك سبايس">Steak Spice</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Spiced steak sandwich" data-ar="سندويش ستيك متبل">Spiced steak sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Steak%20Spice" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-sausage"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Makanek" data-ar="مقانق">Makanek</h3>
+                                <span class="price">300 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Lebanese spiced sausages" data-ar="نقانق لبنانية متبلة">Lebanese spiced sausages</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Makanek" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-sausage"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Sojjouk" data-ar="سجق">Sojjouk</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Armenian spiced sausage" data-ar="سجق أرمني متبل">Armenian spiced sausage</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Sojjouk" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bacon"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Rosto" data-ar="روستو">Rosto</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Roasted beef sandwich" data-ar="سندويش لحم مشوي">Roasted beef sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Rosto" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Potato Cheese" data-ar="بطاطا جبنة">Potato Cheese</h3>
+                                <span class="price">450 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Potato and cheese sandwich" data-ar="سندويش بطاطا وجبنة">Potato and cheese sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Potato%20Cheese" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Potato Sandwich" data-ar="سندويش بطاطا">Potato Sandwich</h3>
+                                <span class="price">200 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Simple potato sandwich" data-ar="سندويش بطاطا بسيط">Simple potato sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Potato%20Sandwich" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Eraydes Sandwich" data-ar="سندويش عرايس">Eraydes Sandwich</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Lebanese meat-filled pita" data-ar="خبز عربي محشي باللحم">Lebanese meat-filled pita</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Eraydes%20Sandwich" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Cocktail Sandwich" data-ar="سندويش كوكتيل">Cocktail Sandwich</h3>
+                                <span class="price">600 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Mix of meats sandwich" data-ar="سندويش مشكل لحوم">Mix of meats sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Cocktail%20Sandwich" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Lsanat" data-ar="لسانات">Lsanat</h3>
+                                <span class="price">450 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Beef tongue sandwich" data-ar="سندويش لسان">Beef tongue sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Lsanat" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Nhha al" data-ar="نهى ال">Nhha al</h3>
+                                <span class="price">450 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Special meat sandwich" data-ar="سندويش لحم خاص">Special meat sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Nhha%20al" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- APPETIZERS SECTION -->
+            <div class="menu-category-section" id="appetizers">
+                <h3 class="category-title" data-en="Appetizers" data-ar="مقبلات">Appetizers</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-french-fries"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Wedges" data-ar="ويدجز">Wedges</h3>
+                                <span class="price">300 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Crispy potato wedges" data-ar="بطاطا ويدجز مقرمشة">Crispy potato wedges</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Wedges" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-french-fries"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Fries" data-ar="بطاطا مقلية">Fries</h3>
+                                <span class="price">200 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Classic french fries" data-ar="بطاطا مقلية كلاسيكية">Classic french fries</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Fries" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-french-fries"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Curly Fries" data-ar="بطاطا كيرلي">Curly Fries</h3>
+                                <span class="price">300 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Spiral-cut curly fries" data-ar="بطاطا كيرلي حلزونية">Spiral-cut curly fries</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Curly%20Fries" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Mozzarella Sticks 4pcs" data-ar="أصابع موزاريلا 4 قطع">Mozzarella Sticks 4pcs</h3>
+                                <span class="price">350 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Breaded mozzarella cheese sticks" data-ar="أصابع جبنة موزاريلا مقرمشة">Breaded mozzarella cheese sticks</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Mozzarella%20Sticks" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Wings 6pcs" data-ar="أجنحة 6 قطع">Wings 6pcs</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Crispy chicken wings" data-ar="أجنحة دجاج مقرمشة">Crispy chicken wings</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Wings" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-french-fries"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Special Fries" data-ar="بطاطا خاصة">Special Fries</h3>
+                                <span class="price">650 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Loaded fries with special toppings" data-ar="بطاطا محملة بإضافات خاصة">Loaded fries with special toppings</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Special%20Fries" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Mix Appetizer" data-ar="مقبلات مشكلة">Mix Appetizer</h3>
+                                <span class="price">900 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Assorted appetizers platter" data-ar="صحن مقبلات منوعة">Assorted appetizers platter</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Mix%20Appetizer" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MASHAWI SECTION -->
+            <div class="menu-category-section" id="mashawi">
+                <h3 class="category-title" data-en="Mashawi" data-ar="مشاوي">Mashawi</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="She2at" data-ar="شقف">She2at</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Grilled meat slices" data-ar="شرائح لحم مشوي">Grilled meat slices</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20She2at" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Kafta" data-ar="كفتة">Kafta</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Grilled ground meat skewers" data-ar="أسياخ كفتة مشوية">Grilled ground meat skewers</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Kafta" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Tawook" data-ar="طاووق">Tawook</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Grilled chicken skewers" data-ar="أسياخ دجاج مشوي">Grilled chicken skewers</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Tawook" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Manik al-Tawook" data-ar="منيك الطاووق">Manik al-Tawook</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Special grilled chicken" data-ar="دجاج مشوي خاص">Special grilled chicken</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Manik%20al-Tawook" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Sandwich Saj Fahem" data-ar="سندويش صاج فحم">Sandwich Saj Fahem</h3>
+                                <span class="price">400 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Charcoal grilled saj sandwich" data-ar="سندويش صاج مشوي على الفحم">Charcoal grilled saj sandwich</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Sandwich%20Saj%20Fahem" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PASTA SECTION -->
+            <div class="menu-category-section" id="pasta">
+                <h3 class="category-title" data-en="Pasta" data-ar="باستا">Pasta</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Penne Chicken" data-ar="بيني دجاج">Penne Chicken</h3>
+                                <span class="price">650 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Penne pasta with chicken" data-ar="معكرونة بيني مع دجاج">Penne pasta with chicken</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Penne%20Chicken" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Penne Rose" data-ar="بيني روز">Penne Rose</h3>
+                                <span class="price">650 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Penne pasta with rose sauce" data-ar="معكرونة بيني بصلصة روز">Penne pasta with rose sauce</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Penne%20Rose" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-shrimp"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Pasta Shrimp" data-ar="باستا جمبري">Pasta Shrimp</h3>
+                                <span class="price">850 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Pasta with shrimp" data-ar="معكرونة مع جمبري">Pasta with shrimp</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Pasta%20Shrimp" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PLATTERS SECTION -->
+            <div class="menu-category-section" id="platter">
+                <h3 class="category-title" data-en="Platters" data-ar="صحون">Platters</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-plate-wheat"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Kafta Plate" data-ar="صحن كفتة">Kafta Plate</h3>
+                                <span class="price">650 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Kafta with sides" data-ar="كفتة مع مرفقات">Kafta with sides</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Kafta%20Plate" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-plate-wheat"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Ghazal Plate" data-ar="صحن غزال">Ghazal Plate</h3>
+                                <span class="price">750 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Special mixed grill plate" data-ar="صحن مشاوي مشكلة خاص">Special mixed grill plate</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Ghazal%20Plate" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-plate-wheat"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Tawook Plate" data-ar="صحن طاووق">Tawook Plate</h3>
+                                <span class="price">650 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Grilled chicken plate with sides" data-ar="صحن دجاج مشوي مع مرفقات">Grilled chicken plate with sides</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Tawook%20Plate" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-plate-wheat"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Escalope Plate" data-ar="صحن اسكالوب">Escalope Plate</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Escalope with sides" data-ar="اسكالوب مع مرفقات">Escalope with sides</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Escalope%20Plate" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-plate-wheat"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Crispy Plate" data-ar="صحن كريسبي">Crispy Plate</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Crispy chicken with sides" data-ar="دجاج مقرمش مع مرفقات">Crispy chicken with sides</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Crispy%20Plate" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-plate-wheat"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Djej Saj Fahem" data-ar="دجاج صاج فحم">Djej Saj Fahem</h3>
+                                <span class="price">550 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Charcoal grilled chicken plate" data-ar="صحن دجاج مشوي على الفحم">Charcoal grilled chicken plate</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Djej%20Saj%20Fahem" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SALAD SECTION -->
+            <div class="menu-category-section" id="salad">
+                <h3 class="category-title" data-en="Salad" data-ar="سلطة">Salad</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-salad"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-header">
+                                <h3 data-en="Caesar Salad" data-ar="سلطة سيزر">Caesar Salad</h3>
+                                <span class="price">700 LL</span>
+                            </div>
+                            <p class="menu-item-desc" data-en="Classic Caesar salad" data-ar="سلطة سيزر كلاسيكية">Classic Caesar salad</p>
+                            <a href="https://wa.me/96181808683?text=I'd%20like%20to%20order%20Caesar%20Salad" class="menu-order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span data-en="Order" data-ar="اطلب">Order</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title" data-en="About Crazy Chef" data-ar="عن كريزي شيف">About Crazy Chef</h2>
+                    <p data-en="At Crazy Chef, we bring you the best of Lebanese fast food. From juicy burgers to authentic mashawi, every dish is crafted with passion and quality ingredients. Experience the crazy difference!" data-ar="في كريزي شيف، نقدم لك أفضل الوجبات السريعة اللبنانية. من البرغر الشهي إلى المشاوي الأصيلة، كل طبق محضر بشغف ومكونات عالية الجودة. اختبر الفرق المجنون!">At Crazy Chef, we bring you the best of Lebanese fast food. From juicy burgers to authentic mashawi, every dish is crafted with passion and quality ingredients. Experience the crazy difference!</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 data-en="Fast Service" data-ar="خدمة سريعة">Fast Service</h3>
+                        <p data-en="Quick preparation and delivery" data-ar="تحضير وتوصيل سريع">Quick preparation and delivery</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 data-en="Fresh Ingredients" data-ar="مكونات طازجة">Fresh Ingredients</h3>
+                        <p data-en="Daily fresh produce" data-ar="منتجات طازجة يومياً">Daily fresh produce</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 data-en="Delivery Available" data-ar="توصيل متوفر">Delivery Available</h3>
+                        <p data-en="We deliver to your door" data-ar="نوصل لباب بيتك">We deliver to your door</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION - COMMENTED OUT FOR LATER USE
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-en="Visual Feast" data-ar="وليمة بصرية">Visual Feast</span>
+                <h2 class="section-title" data-en="Gallery" data-ar="معرض الصور">Gallery</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Food Photo 1</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Food Photo 2</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Restaurant Photo 1</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Food Photo 3</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Food Photo 4</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Restaurant Photo 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    END GALLERY SECTION -->
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-en="What People Say" data-ar="ماذا يقول الناس">What People Say</span>
+                <h2 class="section-title" data-en="Customer Reviews" data-ar="آراء العملاء">Customer Reviews</h2>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text" data-en="Best burgers in town! The Crazy Classic is my go-to every weekend. Fresh ingredients and amazing taste. Highly recommend!" data-ar="أفضل برغر في المدينة! الكلاسيك المجنون هو خياري في كل عطلة نهاية أسبوع. مكونات طازجة وطعم رائع. أوصي به بشدة!">Best burgers in town! The Crazy Classic is my go-to every weekend. Fresh ingredients and amazing taste. Highly recommend!</p>
+                    <div class="reviewer">
+                        <strong>Sarah M.</strong>
+                        <span data-en="Regular Customer" data-ar="عميلة دائمة">Regular Customer</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text" data-en="The crispy fajita fries are absolutely incredible! Perfect blend of flavors and textures. Service is quick and staff is super friendly." data-ar="بطاطا الفاهيتا المقرمشة رائعة تماماً! مزيج مثالي من النكهات. الخدمة سريعة والموظفون ودودون جداً.">The crispy fajita fries are absolutely incredible! Perfect blend of flavors and textures. Service is quick and staff is super friendly.</p>
+                    <div class="reviewer">
+                        <strong>Ahmad K.</strong>
+                        <span data-en="Food Enthusiast" data-ar="عاشق الطعام">Food Enthusiast</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text" data-en="Ordered delivery twice this week. Both times the food arrived hot and fresh. The chicken shawarma tastes authentic and delicious!" data-ar="طلبت التوصيل مرتين هذا الأسبوع. في كلا المرتين وصل الطعام ساخناً وطازجاً. شاورما الدجاج طعمها أصيل ولذيذ!">Ordered delivery twice this week. Both times the food arrived hot and fresh. The chicken shawarma tastes authentic and delicious!</p>
+                    <div class="reviewer">
+                        <strong>Lara T.</strong>
+                        <span data-en="Delivery Regular" data-ar="طلبات منتظمة">Delivery Regular</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours & Services Section -->
+    <section class="hours-services">
+        <div class="container">
+            <div class="hs-grid">
+                <div class="hours-card">
+                    <h3 data-en="Opening Hours" data-ar="ساعات العمل">Opening Hours</h3>
+                    <div class="hours-list">
+                        <div class="hour-item">
+                            <span data-en="Every Day" data-ar="كل يوم">Every Day</span>
+                            <span class="time">2:00 PM - 10:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-card">
+                    <h3 data-en="Our Services" data-ar="خدماتنا">Our Services</h3>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <i class="fas fa-utensils"></i>
+                            <span data-en="Dine-In" data-ar="تناول الطعام">Dine-In</span>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span data-en="Takeaway" data-ar="أخذ الطعام">Takeaway</span>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-motorcycle"></i>
+                            <span data-en="Delivery" data-ar="توصيل">Delivery</span>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span data-en="Online Orders" data-ar="طلبات أونلاين">Online Orders</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-en="Find Us" data-ar="ابحث عنا">Find Us</span>
+                <h2 class="section-title" data-en="Our Location" data-ar="موقعنا">Our Location</h2>
+            </div>
+            
+            <div class="location-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-en="Address" data-ar="العنوان">Address</h4>
+                            <p data-en="Main Street, Sidon, Lebanon" data-ar="الشارع الرئيسي، صيدا، لبنان">Main Street, Sidon, Lebanon</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-en="Phone" data-ar="الهاتف">Phone</h4>
+                            <p>+961 81 808 683</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+961 81 808 683</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <!-- Google Maps Embed - Replace with actual coordinates -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52901.534621745746!2d35.350444!3d33.561044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151e7d902f28d0e1%3A0x8d3c2f02248699a7!2sSidon%2C%20Lebanon!5e0!3m2!1sen!2s!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-crazy">CRAZY</span>
+                        <span class="logo-chef">CHEF</span>
+                    </div>
+                    <p data-en="Fresh burgers, authentic mashawi & tasty snacks. Order now!" data-ar="برغر طازج، مشاوي أصيلة وسناكس لذيذ. اطلب الآن!">Fresh burgers, authentic mashawi & tasty snacks. Order now!</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/96181808683" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" data-en="About" data-ar="من نحن">About</a></li>
+                        <li><a href="#menu" data-en="Menu" data-ar="القائمة">Menu</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 data-en="Opening Hours" data-ar="ساعات العمل">Opening Hours</h4>
+                    <ul>
+                        <li>
+                            <span data-en="Every Day" data-ar="كل يوم">Every Day</span>
+                            <span>2 PM - 10 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 data-en="Contact" data-ar="اتصل بنا">Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +961 81 808 683</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-en="Sidon, Lebanon" data-ar="صيدا، لبنان">Sidon, Lebanon</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Crazy Chef. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/96181808683?text=Hello!%20I'd%20like%20to%20place%20an%20order" class="whatsapp-float" target="_blank" aria-label="Order on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+// ========================================
+// CRAZY CHEF - RESTAURANT WEBSITE JAVASCRIPT
+// Modern Lebanese Fast Food Website
+// ========================================
+
+// Language Data
+const translations = {
+    en: {
+        dir: 'ltr',
+    },
+    ar: {
+        dir: 'rtl',
+    }
+};
+
+// Current Language State
+let currentLang = 'en';
+
+// ========================================
+// DOM ELEMENTS
+// ========================================
+const navbar = document.getElementById('navbar');
+const navMenu = document.getElementById('navMenu');
+const hamburger = document.getElementById('hamburger');
+const langToggle = document.getElementById('langToggle');
+
+// ========================================
+// NAVIGATION FUNCTIONS
+// ========================================
+
+// Sticky Navigation on Scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Mobile Menu Toggle
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+// Active Nav Link on Scroll
+const sections = document.querySelectorAll('section[id]');
+
+function activateNavLink() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+}
+
+window.addEventListener('scroll', activateNavLink);
+
+// ========================================
+// LANGUAGE SWITCHING
+// ========================================
+
+langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    switchLanguage(currentLang);
+});
+
+function switchLanguage(lang) {
+    const html = document.documentElement;
+    
+    // Update direction
+    html.setAttribute('dir', translations[lang].dir);
+    html.setAttribute('lang', lang);
+    
+    // Update all translatable elements
+    document.querySelectorAll('[data-en]').forEach(element => {
+        const key = lang === 'en' ? 'data-en' : 'data-ar';
+        const translation = element.getAttribute(key);
+        if (translation) {
+            element.textContent = translation;
+        }
+    });
+    
+    // Update input placeholders
+    document.querySelectorAll('[data-placeholder-en]').forEach(element => {
+        const key = lang === 'en' ? 'data-placeholder-en' : 'data-placeholder-ar';
+        const translation = element.getAttribute(key);
+        if (translation) {
+            element.placeholder = translation;
+        }
+    });
+    
+    // Update language toggle active state
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.getAttribute('data-lang') === lang) {
+            option.classList.add('active');
+        }
+    });
+    
+    // Add animation to elements
+    document.body.style.opacity = '0.8';
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 150);
+}
+
+// ========================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ========================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            const offsetTop = target.offsetTop - 70;
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ========================================
+// PRELOADER (OPTIONAL)
+// ========================================
+
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// ========================================
+// INTERACTIVE ENHANCEMENTS
+// ========================================
+
+// Add parallax effect to hero section
+window.addEventListener('scroll', () => {
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        const scrolled = window.pageYOffset;
+        heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+});
+
+// ========================================
+// PERFORMANCE OPTIMIZATIONS
+// ========================================
+
+// Debounce function for scroll events
+function debounce(func, wait = 10, immediate = true) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        const later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
+
+// Apply debounce to scroll-heavy functions
+window.addEventListener('scroll', debounce(activateNavLink));
+
+// ========================================
+// CONSOLE MESSAGE
+// ========================================
+
+console.log('%c🍔 Crazy Chef Website Loaded Successfully! 🍔', 'color: #E63946; font-size: 20px; font-weight: bold;');
+console.log('%cDeveloped with ❤️ for Lebanese Fast Food Excellence', 'color: #6C6C6C; font-size: 12px;');
+
+// ========================================
+// INITIALIZATION
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Set initial active nav link
+    activateNavLink();
+    
+    // Log initialization
+    console.log('Website initialized successfully');
+});
+    </script>
+</body>
+</html>
